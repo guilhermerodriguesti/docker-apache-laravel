@@ -86,7 +86,7 @@ docker exec -it container-laravel php artisan key:generate
 
    http://ip ou http://ip:8001
 
-4.  Caso que configurar o NGINX do hospedeiro para responder em uma porta diferente:
+4.  Caso queira configurar o NGINX do hospedeiro para responder em uma porta diferente:
 
 Criar o `default.conf` no `/etc/nginx/conf.d/`
 
