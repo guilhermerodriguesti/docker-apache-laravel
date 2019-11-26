@@ -145,12 +145,17 @@ docker exec -it container-laravel php artisan key:generate
 
 * No Host hospedeiro reinicie o Nginx: `systemctl restart nginx`
 
+* Abra no navegador
+
+   http://ip ou http://ip:8001
+
 ## Verificar logs do Servidor(Host hospedeiro) NGINX!
 
 ```
 tail -f /var/log/nginx/laravel-app.access.log
 ```
 e
+
 ```
 tail -f /var/log/nginx/laravel-app.error.log
 ```
@@ -160,6 +165,7 @@ tail -f /var/log/nginx/laravel-app.error.log
 tail -f container-laravel/logs/apache2/apache-laravel-error_log
 ```
 e
+
 ```
 tail -f container-laravel/logs/apache2/apache-laravel-access_log
 ```
