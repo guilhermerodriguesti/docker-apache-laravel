@@ -15,7 +15,8 @@
 ## 🔧 Instruções de Instalação
 
 1.  Clonar este repositório;
-    Estrutura
+    
+```
     .
 ├── bin
 │   └── appserver
@@ -35,7 +36,7 @@
 ├── README.md
 │
 └── www
-
+```
 2.  Executar `docker-compose build` dentro da pasta que fez o clone deste projeto.
 
 3.  Executar `docker-compose up -d` dentro da pasta que fez o clone deste projeto..
