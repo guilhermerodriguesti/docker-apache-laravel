@@ -20,13 +20,13 @@
     .
 ├── bin
 │   └── appserver
-│       └── Dockerfile
-├── config
+│       └── Dockerfile <-----Configuração da IMAGEN do Container
+├── config <-----Configuração do APACHE e do PHP
 │   ├── php
-│   │   └── php.ini
+│   │   └── php.ini 
 │   └── vhosts
 │       └── default.conf
-├── docker-compose.yml
+├── docker-compose.yml <-----Configuração do Ambiente do Container
 ├── LICENSE
 ├── logs
 │   └── apache2
@@ -35,7 +35,7 @@
 │       
 ├── README.md
 │
-└── www
+└── www <----- Aplicação Laravel
 ```
 2.  Executar `docker-compose build` dentro da pasta que fez o clone deste projeto.
 
