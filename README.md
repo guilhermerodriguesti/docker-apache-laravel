@@ -14,7 +14,78 @@
 
 ## 🔧 Instruções de Instalação
 
-1.  Configurar o NGINX do hospedeiro de acordo com abaixo:
+1.  Clonar este repositório;
+    Estrutura
+    .
+├── bin
+│   └── appserver
+│       └── Dockerfile
+├── config
+│   ├── php
+│   │   └── php.ini
+│   └── vhosts
+│       └── default.conf
+├── docker-compose.yml
+├── LICENSE
+├── logs
+│   └── apache2
+│       ├── apache-laravel-access_log
+│       ├── apache-laravel-error_log
+│       
+├── README.md
+│
+└── www
+
+2.  Executar `docker-compose build` dentro da pasta que fez o clone deste projeto.
+
+3.  Executar `docker-compose up -d` dentro da pasta que fez o clone deste projeto..
+
+## Como utitilizar o Container
+
+Entre no Container
+```
+docker exec -it container-laravel bash
+```
+Para primeira instalacao remover o `composer.lock`
+
+```
+rm -rf composer.lock 
+```
+```
+php -v
+```
+Dê permissão na pasta `storage` e na pasta `bootstrap/cache` e Execute na raiz: `composer install`
+
+```
+chmod -R 777 storage
+```
+```
+chmod -R 777 bootstrap/cache
+```
+```
+composer install
+```
+* Entre no diretorio raiz do laravel e copie o `.env.exemple` para `.env`
+
+```
+cp .env.example .env
+```
+```
+vim .env
+```
+Execute também: `php artisan key:generate`
+```
+docker exec -it container-laravel php artisan key:generate
+```
+* Entre no diretorio e copie o arquivo .env.exemple para o arquivo .env.
+
+* No Host hospedeiro reinicie o Nginx: `systemctl restart nginx`
+
+* Abra no navegador
+
+   http://ip ou http://ip:8001
+
+4.  Caso que configurar o NGINX do hospedeiro para responder em uma porta diferente:
 
 Criar o `default.conf` no `/etc/nginx/conf.d/`
 
@@ -97,57 +168,6 @@ Criar o `laravel.conf` no `/etc/nginx/conf.d/`e configure o `server_name` e  `pr
     }
 
 ```
-
-2.  Clonar este repositório;
-
-3.  Executar `docker-compose build` dentro da pasta que fez o clone deste projeto.
-
-4.  Executar `docker-compose up -d` dentro da pasta que fez o clone deste projeto..
-
-## Como utitilizar o Container
-
-Entre no Container
-```
-docker exec -it container-laravel bash
-```
-Para primeira instalacao remover o `composer.lock`
-
-```
-rm -rf composer.lock 
-```
-```
-php -v
-```
-Dê permissão na pasta `storage` e na pasta `bootstrap/cache` e Execute na raiz: `composer install`
-
-```
-chmod -R 777 storage
-```
-```
-chmod -R 777 bootstrap/cache
-```
-```
-composer install
-```
-* Entre no diretorio raiz do laravel e copie o `.env.exemple` para `.env`
-
-```
-cp .env.example .env
-```
-```
-vim .env
-```
-Execute também: `php artisan key:generate`
-```
-docker exec -it container-laravel php artisan key:generate
-```
-* Entre no diretorio e copie o arquivo .env.exemple para o arquivo .env.
-
-* No Host hospedeiro reinicie o Nginx: `systemctl restart nginx`
-
-* Abra no navegador
-
-   http://ip ou http://ip:8001
 
 ## Verificar logs do Servidor(Host hospedeiro) NGINX!
 
