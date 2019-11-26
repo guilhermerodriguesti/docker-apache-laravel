@@ -143,9 +143,9 @@ docker exec -it container-laravel php artisan key:generate
 ```
 * Entre no diretorio e copie o arquivo .env.exemple para o arquivo .env.
 
-Reinicie o Nginx: `systemctl restart nginx`
+* No Host hospedeiro reinicie o Nginx: `systemctl restart nginx`
 
-## Verificar logs do Servidor NGINX!
+## Verificar logs do Servidor(Host hospedeiro) NGINX!
 
 ```
 tail -f /var/log/nginx/laravel-app.access.log
